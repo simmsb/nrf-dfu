@@ -723,11 +723,6 @@ impl<const MTU: usize> DfuTarget<MTU> {
                             crc: obj.crc.finish(),
                         });
                     }
-                } else {
-                    response = response.body(DfuResponseBody::Crc {
-                        offset: obj.offset,
-                        crc: obj.crc.finish(),
-                    });
                 };
                 (response, DfuStatus::InProgress)
             }
